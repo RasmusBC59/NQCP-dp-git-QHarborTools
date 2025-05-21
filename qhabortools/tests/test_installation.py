@@ -5,14 +5,14 @@ This test file is included so that the tests can run immediately after the
 template creation of the repo
 """
 
-from qhabortools.hello_world import greeter, hello_world, myadd
+from qhabortools.hello_world import greeter, myadd
 
 
 def test_greeter():
-    assert greeter("name") == f"Hello, name!"
-	
-def test_myadd():
-	x = 2
-	y = 2
-	assert myadd(x,y) == x+y 
+    assert greeter("name") == "Hello, name!"
 
+
+def test_myadd():
+    x = 2
+    y = 2
+    assert myadd(x, y) == x + y

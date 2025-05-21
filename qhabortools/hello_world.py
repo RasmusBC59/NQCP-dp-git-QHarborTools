@@ -14,6 +14,7 @@ def hello_world() -> None:
     """
     print("Hello, world! from qhabortools")
 
+
 # This function addes to numbers
-def myadd(x: float,y: float) -> float:
-	return x+y
+def myadd(x: float, y: float) -> float:
+    return x + y

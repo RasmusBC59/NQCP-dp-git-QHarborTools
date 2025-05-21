@@ -21,6 +21,7 @@ import qhabortools
 
 from pathlib import Path
 from packaging.version import parse
+
 sys.path.insert(0, os.path.abspath(".."))
 # Set the project directory to the root of your project
 project_dir = Path(__file__).resolve().parent.parent
