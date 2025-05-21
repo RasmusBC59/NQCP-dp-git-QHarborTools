@@ -23,9 +23,14 @@ class FolderGeneratorApp:
         self.root.geometry("300x200")
         self.rootfolder = None
         self.infofile = None
-        
+        #text_var = tk.StringVar()
+        #text_var.set("Hello, World!")
         tk.Button(root, text="Select Root Folder", command=self.select_folder).pack(expand=True, pady=10)
-        tk.Button(root, text="Select File", command=self.select_file).pack(expand=True, pady=10)
+        self.folder_label = tk.Label(root, text="No folder selected", anchor="w")
+        self.folder_label.pack(fill="x", padx=10, pady=5)
+        tk.Button(root, text="Select Info File", command=self.select_file).pack(expand=True, pady=10)
+        self.infofile_label = tk.Label(root, text="No Info File selected", anchor="w")
+        self.infofile_label.pack(fill="x", padx=10, pady=5)
         tk.Button(root, text="Generate Folder", command=self.generate_file).pack(expand=True, pady=10)
     
     def folderfromxlapp(self):
@@ -38,6 +43,7 @@ class FolderGeneratorApp:
         path = filedialog.askdirectory()
         if path:
             self.rootfolder = pathlib.Path(path)
+            self.folder_label.config(text=f"Selected folder: {path}")
             messagebox.showinfo("Folder Selected", f"Selected folder:\n{path}")
 
 
@@ -45,6 +51,7 @@ class FolderGeneratorApp:
         file_path = filedialog.askopenfilename()
         if file_path:
             self.infofile = pathlib.Path(file_path)
+            self.infofile_label.config(text=f"Selected file: {file_path}")
             messagebox.showinfo("File Selected", f"Selected file:\n{file_path}")
             
     def generate_file(self):
