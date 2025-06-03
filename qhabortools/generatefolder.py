@@ -1,17 +1,18 @@
 import pandas as pd
 import pathlib
-from qdrive.dataset import generate_dataset_info
+from qdrive.dataset import generate_dataset_info  # type: ignore[import-untyped]
 import tkinter as tk
 from tkinter import filedialog, messagebox
 
+from typing import Optional, Any
 
 class FolderGeneratorApp:
-    def __init__(self, root):
+    def __init__(self, root: tk.Tk) -> None:
         self.root = root
         self.root.title("Generate Folders")
         self.root.geometry("300x200")
-        self.rootfolder = None
-        self.infofile = None
+        self.rootfolder: Optional[pathlib.Path] = None
+        self.infofile: Optional[pathlib.Path] = None
 
         tk.Button(root, text="Select Root Folder", command=self.select_folder).pack(
             expand=True, pady=10
@@ -27,24 +28,27 @@ class FolderGeneratorApp:
             expand=True, pady=10
         )
 
-    def folderfromxlapp(self):
-        folderfromxl(self.rootfolder, self.infofile)
-
-    def select_folder(self):
+    def folderfromxlapp(self) -> None:
+        if self.rootfolder is None or self.infofile is None:
+            raise ValueError("Root folder and info file must not be None.")
+        else:
+            folderfromxl(self.rootfolder, self.infofile)
+        
+    def select_folder(self) -> None:
         path = filedialog.askdirectory()
         if path:
             self.rootfolder = pathlib.Path(path)
             self.folder_label.config(text=f"Selected folder: {path}")
             messagebox.showinfo("Folder Selected", f"Selected folder:\n{path}")
 
-    def select_file(self):
+    def select_file(self) -> None:
         file_path = filedialog.askopenfilename()
         if file_path:
             self.infofile = pathlib.Path(file_path)
             self.infofile_label.config(text=f"Selected file: {file_path}")
             messagebox.showinfo("File Selected", f"Selected file:\n{file_path}")
 
-    def generate_file(self):
+    def generate_file(self) -> None:
         if self.rootfolder is None or self.infofile is None:
             messagebox.showerror(
                 "Error", "Please select both a root folder and an info file."
@@ -54,10 +58,11 @@ class FolderGeneratorApp:
         messagebox.showinfo("Success", "Folders generated successfully.")
 
 
-def folderfromxl(rootfolder, infofile):
+def folderfromxl(rootfolder: pathlib.Path, infofile: pathlib.Path) -> None:
     folderinfo = pd.read_excel(infofile)
     for row in folderinfo.iterrows():
         info_dict = row[1].to_dict()
+
         folder = info_dict.pop("Folder")
         # TODO tjekk schema
         subjectID = info_dict["SubjectID"]

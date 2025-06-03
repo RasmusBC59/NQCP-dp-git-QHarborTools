@@ -2,7 +2,7 @@ import tkinter as tk
 from qhabortools.generatefolder import FolderGeneratorApp
 
 
-def run():
+def run() -> None:
     root = tk.Tk()
 
     FolderGeneratorApp(root)
