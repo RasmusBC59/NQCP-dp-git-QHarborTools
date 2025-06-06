@@ -1,7 +1,8 @@
 trigger:
-  branches:
+  tags:
     include:
-    - release/v*
+    - 'v*'
+
     
 pool:
   vmImage: ubuntu-latest
