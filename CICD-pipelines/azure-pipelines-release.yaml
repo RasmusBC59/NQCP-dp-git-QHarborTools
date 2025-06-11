@@ -13,7 +13,7 @@ jobs:
         fetchDepth: all
         fetchTags: true
 
-      - template: Version.yaml
+      - template: CheckOnReleaseBranch.yaml
         parameters:
           tagName: $(Build.SourceBranchName)  
 
