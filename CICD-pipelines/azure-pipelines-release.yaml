@@ -7,33 +7,22 @@ pool:
   vmImage: ubuntu-latest
 
 jobs:
-  - job: ReleasePackageAndDocs
+  - job: ReleaseArtifactAndDocs
     steps:
       - checkout: self
         fetchDepth: all
         fetchTags: true
-      - script: |
-          echo "Checking if tag $(Build.SourceBranchName) is on a release branch..."
-          TAG_COMMIT=$(git rev-list -n 1 $(Build.SourceBranchName))
-          echo "Tag commit: $TAG_COMMIT"
-          if [ -z "$TAG_COMMIT" ]; then
-            echo "Tag $(Build.SourceBranchName) does not exist."
-            exit 1
-          fi
-          BRANCHES=$(git branch -r --contains $TAG_COMMIT | grep 'release/v')
-          if [ -z "$BRANCHES" ]; then
-            echo "❌ Tag is not on a release branch. Failing the pipeline."
-            exit 1
-          else
-            echo "✅ Tag is on a release branch."
-          fi
-        displayName: 'Check if tag is on release branch'
+
+      - template: Version.yaml
+        parameters:
+          tagName: $(Build.SourceBranchName)  
 
       - task: UsePythonVersion@0
         inputs:
           versionSpec: "3.12"
           addToPath: true
         displayName: "Use Python 3.12"
+
       - template: Test.yaml
       - template: Build.yaml
       - template: Publish.yaml
