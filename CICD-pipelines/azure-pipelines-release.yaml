@@ -2,7 +2,6 @@ trigger:
   tags:
     include:
     - 'v*'
-
     
 pool:
   vmImage: ubuntu-latest
@@ -14,7 +13,6 @@ jobs:
         fetchDepth: all
         fetchTags: true
       - script: |
-          git fetch --all
           echo "Checking if tag $(Build.SourceBranchName) is on a release branch..."
           TAG_COMMIT=$(git rev-list -n 1 $(Build.SourceBranchName))
           echo "Tag commit: $TAG_COMMIT"
