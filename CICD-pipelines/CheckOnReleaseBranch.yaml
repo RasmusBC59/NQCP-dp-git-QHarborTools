@@ -3,11 +3,11 @@ parameters:
 
 steps:
 - script: |
-    echo "Checking if tag $(tagName) is on a release branch..."
-    TAG_COMMIT=$(git rev-list -n 1 $(tagName))
+    echo "Checking if tag ${{ parameters.tagName }} is on a release branch..."
+    TAG_COMMIT=$(git rev-list -n 1 ${{ parameters.tagName }})
     echo "Tag commit: $TAG_COMMIT"
     if [ -z "$TAG_COMMIT" ]; then
-      echo "❌ Tag $(tagName) does not exist or is not reachable in shallow clone.
+      echo "❌ Tag ${{ parameters.tagName }} does not exist or is not reachable in shallow clone.
       Please, ensure, that the tag is created on the latest commit inside the release branch."
       exit 1
     fi
