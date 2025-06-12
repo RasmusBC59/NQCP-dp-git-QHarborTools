@@ -10,7 +10,7 @@ jobs:
   - job: ReleaseArtifactAndDocs
     steps:
       - checkout: self
-        fetchDepth: all
+        fetchDepth: 0
         fetchTags: true
 
       - template: CheckOnReleaseBranch.yaml

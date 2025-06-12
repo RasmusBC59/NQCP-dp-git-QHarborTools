@@ -7,8 +7,8 @@ steps:
     TAG_COMMIT=$(git rev-list -n 1 ${{ parameters.tagName }})
     echo "Tag commit: $TAG_COMMIT"
     if [ -z "$TAG_COMMIT" ]; then
-      echo "❌ Tag ${{ parameters.tagName }} does not exist or is not reachable in shallow clone.
-      Please, ensure, that the tag is created on the latest commit inside the release branch."
+      echo "❌ Tag ${{ parameters.tagName }} does not exist on the latest commits inside the release branch..
+      Please, ensure, that the tag is created."
       exit 1
     fi
     BRANCHES=$(git branch -r --contains $TAG_COMMIT | grep 'release/v')
@@ -18,4 +18,4 @@ steps:
     else
       echo "✅ Tag is on a release branch."
     fi
-  displayName: 'Check if tag is on release branch (shallow clone)'
+  displayName: 'Check if tag is on release branch.'
