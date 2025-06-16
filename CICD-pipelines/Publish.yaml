@@ -25,4 +25,4 @@ steps:
     inputs:
       script: |
         python -m twine upload -r NQCP_Tier2 --config-file $(PYPIRC_PATH) dist/*.whl
-    displayName: "Upload package to NQCP PyPI feed"
+    displayName: "Upload package to NQCP package feed"
