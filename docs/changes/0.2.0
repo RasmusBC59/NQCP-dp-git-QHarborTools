@@ -1,0 +1,9 @@
+**************************************************
+Changelog for qharbortools
+**************************************************
+This is version 0.2.0 of qharbortools.
+This version includes the following changes:
+
+Breaking Changes:
+_________________
+Correct the name from qhabortools to qharbortools. This will make in 
