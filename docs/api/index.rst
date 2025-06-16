@@ -1,9 +1,9 @@
 **************************************************
-qhabortools API Documentation
+qharbortools API Documentation
 **************************************************
 
 
-This page documents the qhabortools API.
+This page documents the qharbortools API.
 
 API
 ---

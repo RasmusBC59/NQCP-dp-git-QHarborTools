@@ -1,6 +1,6 @@
 **************************************************
-Changelog for qhabortools
+Changelog for qharbortools
 **************************************************
-This is version 0.1.0 of qhabortools.
+This is version 0.1.0 of qharbortools.
 This version includes the following changes:
 updated the CI piplines. should have no effect on the package itself.

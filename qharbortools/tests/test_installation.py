@@ -5,7 +5,7 @@ This test file is included so that the tests can run immediately after the
 template creation of the repo
 """
 
-from qhabortools.hello_world import greeter, myadd
+from qharbortools.hello_world import greeter, myadd
 
 
 def test_greeter():

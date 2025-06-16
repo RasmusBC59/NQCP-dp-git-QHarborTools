@@ -1,5 +1,5 @@
-name: "Install-dependencies-and-qhabortools"
-description: "Install qhabortools and its dependencies"
+name: "Install-dependencies-and-qharbortools"
+description: "Install qharbortools and its dependencies"
 runs:
   using: "composite"
   steps:

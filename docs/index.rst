@@ -1,8 +1,8 @@
 *****************************************************************
-qhabortools
+qharbortools
 *****************************************************************
 
-tools for QHabor
+tools for qharbor
 
 
 Documentation

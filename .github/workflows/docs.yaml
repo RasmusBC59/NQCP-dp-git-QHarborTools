@@ -66,7 +66,7 @@ jobs:
     - name: upgrade pip setuptools wheel
       run: python -m pip install --upgrade pip setuptools wheel
       shell: bash
-    - name: install qhabortools
+    - name: install qharbortools
       run: pip install -e .[ci]
     - name: Build docs on linux
       run: |

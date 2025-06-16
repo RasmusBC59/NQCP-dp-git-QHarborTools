@@ -1,5 +1,5 @@
 import tkinter as tk
-from qhabortools.generatefolder import FolderGeneratorApp
+from qharbortools.generatefolder import FolderGeneratorApp
 
 
 def run() -> None:

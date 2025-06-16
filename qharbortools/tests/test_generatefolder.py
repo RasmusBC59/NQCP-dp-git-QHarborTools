@@ -1,7 +1,7 @@
 """ import pytest
 import yaml
 import pandas as pd
-from qhabortools.generatefolder import folderfromxl
+from qharbortools.generatefolder import folderfromxl
 
 
 @pytest.fixture

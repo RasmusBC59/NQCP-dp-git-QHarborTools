@@ -12,7 +12,7 @@ def hello_world() -> None:
     """
     Print hello world :)
     """
-    print("Hello, world! from qhabortools")
+    print("Hello, world! from qharbortools")
 
 
 # This function addes to numbers

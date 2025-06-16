@@ -5,11 +5,11 @@ steps:
       cd NQCP-dp-git-webappdocs
       git checkout main
 
-      rm -rf webappdocs/_build/html/data_team/qhabortools
-      mkdir -p webappdocs/_build/html/data_team/qhabortools
-      cp -r $BUILD_SOURCESDIRECTORY/docs/_build/html/* webappdocs/_build/html/data_team/qhabortools
+      rm -rf webappdocs/_build/html/data_team/qharbortools
+      mkdir -p webappdocs/_build/html/data_team/qharbortools
+      cp -r $BUILD_SOURCESDIRECTORY/docs/_build/html/* webappdocs/_build/html/data_team/qharbortools
 
-      cd webappdocs/_build/html/data_team/qhabortools
+      cd webappdocs/_build/html/data_team/qharbortools
       git config user.email "ci-bot@example.com"
       git config user.name  "ci-bot"
       git add .

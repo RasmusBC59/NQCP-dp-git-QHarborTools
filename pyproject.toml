@@ -3,11 +3,11 @@ requires = ["setuptools >= 61.2", "versioningit >= 2.2.1"]
 build-backend = 'setuptools.build_meta'
 
 [project]
-name = "qhabortools"
+name = "qharbortools"
 maintainers = [
     { name = "Rasmus Bjerregaard Christensen", email = "rbcmail@gmail.com" },
 ]
-description = "tools for QHabor"
+description = "tools for qharbor"
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
@@ -69,20 +69,20 @@ docs = [
     "ipykernel",                 # examples using scipy
 ]
 
-ci = ["qhabortools[test, docs]"]
+ci = ["qharbortools[test, docs]"]
 
 [project.scripts]
 
 [project.gui-scripts]
-generatefolder = "qhabortools.generatefolder_app:run"
+generatefolder = "qharbortools.generatefolder_app:run"
 
 
 [tool.coverage.run]
 omit = [
-    "qhabortools/__init__.py",
+    "qharbortools/__init__.py",
     "*/__init__.py",
-    "qhabortools/tests/*",
-    "qhabortools/instrument_drivers/test.py",
+    "qharbortools/tests/*",
+    "qharbortools/instrument_drivers/test.py",
 ]
 [tool.coverage.report]
 exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:"]
@@ -125,7 +125,7 @@ no_implicit_reexport = true
 strict_equality = true
 
 [[tool.mypy.overrides]]
-module = ["qhabortools.tests.*"]
+module = ["qharbortools.tests.*"]
 disallow_untyped_defs = false
 disallow_incomplete_defs = false
 
@@ -156,7 +156,7 @@ module = [
 ignore_missing_imports = true
 
 [tool.pyright]
-include = ["qhabortools"]
+include = ["qharbortools"]
 ignore = []
 reportMissingTypeStubs = true
 
@@ -204,5 +204,5 @@ method = "git"
 match = ["v*"]
 
 [tool.versioningit.onbuild]
-source-file = "qhabortools/_version.py"
-build-file = "qhabortools/_version.py"
+source-file = "qharbortools/_version.py"
+build-file = "qharbortools/_version.py"

@@ -1,4 +1,4 @@
 **************************************************
-Changelog for qhabortools
+Changelog for qharbortools
 **************************************************
 This is version 0

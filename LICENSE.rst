@@ -1,6 +1,6 @@
 Copyright (c) NQCP.
 
-qhabortools is available under the `MIT open-source
+qharbortools is available under the `MIT open-source
 license <https://opensource.org/licenses/MIT>`__ :
 
 Permission is hereby granted, free of charge, to any person obtaining a

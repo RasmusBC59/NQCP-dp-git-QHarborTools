@@ -5,7 +5,7 @@ steps:
     displayName: "Install dependencies"
   - script: |
       pip install pytest pytest-cov pytest-azurepipelines
-      pytest --cov=qhabortools --cov-report=xml --junitxml=test-output-3.12.xml
+      pytest --cov=qharbortools --cov-report=xml --junitxml=test-output-3.12.xml
     displayName: "Run pytest with coverage"
   - task: PublishTestResults@2
     inputs:
@@ -15,7 +15,7 @@ steps:
       testRunTitle: "Test Results for Python 3.12"
     displayName: "Publish test results"
   - script: |
-      mypy -p qhabortools
+      mypy -p qharbortools
     displayName: "Run mypy"
   - task: PublishCodeCoverageResults@2
     inputs:

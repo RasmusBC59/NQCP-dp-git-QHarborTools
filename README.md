@@ -1,4 +1,4 @@
-# qhabortools
+# qharbortools
 <p align="center">
   <img src="https://img.shields.io/static/v1?style=for-the-badge&label=code-status&message=Good&color=green"/>
   <img src="https://img.shields.io/static/v1?style=for-the-badge&label=initial-commit&message=Rasmus Bjerregaard Christensen&color=inactive"/>
@@ -17,16 +17,16 @@ We employ a rough 'stoplight' system for signifying the quality of code in a any
 These banners generated from <a href=https://shields.io/>shields.io</a>.
 
 # Description
-[Examples](https://nqcp.github.io/NQCP-dp-git-QHaborTools/example_notebooks/index.html)
+[Examples](https://nqcp.github.io/NQCP-dp-git-qharbortools/example_notebooks/index.html)
 # Installation
 
 # Usage
 
 ## Running the tests
 
-If you have gotten 'qhabortools' from source, you may run the tests locally.
+If you have gotten 'qharbortools' from source, you may run the tests locally.
 
-Install `qhabortools` along with its test dependencies into your virtual environment by executing the following in the root folder
+Install `qharbortools` along with its test dependencies into your virtual environment by executing the following in the root folder
 
 ```bash
 $ pip install .[test]
@@ -36,9 +36,9 @@ Then run `pytest` in the `tests` folder.
 
 ## Building the documentation
 
-If you have gotten `qhabortools` from source, you may build the docs locally.
+If you have gotten `qharbortools` from source, you may build the docs locally.
 
-Install `qhabortools` along with its documentation dependencies into your virtual environment by executing the following in the root folder
+Install `qharbortools` along with its documentation dependencies into your virtual environment by executing the following in the root folder
 
 ```bash
 $ pip install .[docs]
