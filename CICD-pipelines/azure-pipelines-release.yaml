@@ -6,23 +6,21 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-jobs:
-  - job: ReleaseArtifactAndDocs
-    steps:
-      - checkout: self
-        fetchDepth: 0
-        fetchTags: true
+steps:
+  - checkout: self
+    fetchDepth: 0
+    fetchTags: true
 
-      - template: CheckOnReleaseBranch.yaml
-        parameters:
-          tagName: $(Build.SourceBranchName)  
+  - template: CheckOnReleaseBranch.yaml
+    parameters:
+      tagName: $(Build.SourceBranchName)  
 
-      - task: UsePythonVersion@0
-        inputs:
-          versionSpec: "3.12"
-          addToPath: true
-        displayName: "Use Python 3.12"
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: "3.12"
+      addToPath: true
+    displayName: "Use Python 3.12"
 
-      - template: Test.yaml
-      - template: Build.yaml
-      - template: Publish.yaml
+  - template: Test.yaml
+  - template: Build.yaml
+  - template: Publish.yaml
