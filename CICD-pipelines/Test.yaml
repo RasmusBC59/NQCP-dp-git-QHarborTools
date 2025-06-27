@@ -1,5 +1,12 @@
 steps:
   - script: |
+      pip install ruff
+      ruff format --diff
+    displayName: "Run ruff formating"
+  - script: |
+        ruff check --no-fix
+    displayName: "Run ruff linting" 
+  - script: |
       python -m pip install --upgrade pip setuptools wheel
       pip install -e .[ci]
     displayName: "Install dependencies"

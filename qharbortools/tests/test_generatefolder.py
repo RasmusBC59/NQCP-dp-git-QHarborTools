@@ -1,7 +1,8 @@
-""" import pytest
-import yaml
+import sys
+
 import pandas as pd
-from qharbortools.generatefolder import folderfromxl
+import pytest
+import ruamel.yaml
 
 
 @pytest.fixture
@@ -35,11 +36,17 @@ def mock_folder_structure(tmp_path):
     return root_folder, info_file
 
 
+@pytest.mark.skipif(
+    sys.platform == "linux",
+    reason="Test is not compatible with Linux one of the used libraries is not compatible with Linux",
+)
 def test_folderfromxl(mock_folder_structure):
     root_folder, info_file = mock_folder_structure
+    from qharbortools.generatefolder import folderfromxl  # noqa: PLC0415
 
     # Call the function to test
     folderfromxl(root_folder, info_file)
+    assert True
 
     # Check if the folders were created
     for ii in [1, 2]:
@@ -51,7 +58,7 @@ def test_folderfromxl(mock_folder_structure):
             root_folder / f"B0010{ii}A" / folder_name / "_QH_dataset_info.yaml"
         )
         assert qh_file_path.exists()
-        with open(qh_file_path, "r") as f:
-            data = yaml.safe_load(f)
+        yaml = ruamel.yaml.YAML()
+        with open(qh_file_path) as f:
+            data = yaml.load(f)
             assert data["attributes"]["SubjectID"] == f"B0010{ii}A"
- """

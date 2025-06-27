@@ -1,6 +1,6 @@
 import logging
-import qharbortools._version
 
+import qharbortools._version
 
 __version__ = qharbortools._version.__version__
 

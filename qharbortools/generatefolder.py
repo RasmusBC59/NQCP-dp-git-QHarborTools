@@ -1,10 +1,11 @@
-import pandas as pd
 import pathlib
-from qdrive.dataset import generate_dataset_info  # type: ignore[import-untyped]
 import tkinter as tk
 from tkinter import filedialog, messagebox
+from typing import Optional
 
-from typing import Optional, Any
+import pandas as pd
+from qdrive.dataset import generate_dataset_info  # type: ignore[import-untyped]
+
 
 class FolderGeneratorApp:
     def __init__(self, root: tk.Tk) -> None:
@@ -31,9 +32,8 @@ class FolderGeneratorApp:
     def folderfromxlapp(self) -> None:
         if self.rootfolder is None or self.infofile is None:
             raise ValueError("Root folder and info file must not be None.")
-        else:
-            folderfromxl(self.rootfolder, self.infofile)
-        
+        folderfromxl(self.rootfolder, self.infofile)
+
     def select_folder(self) -> None:
         path = filedialog.askdirectory()
         if path:
@@ -65,7 +65,7 @@ def folderfromxl(rootfolder: pathlib.Path, infofile: pathlib.Path) -> None:
 
         folder = info_dict.pop("Folder")
         # TODO tjekk schema
-        subjectID = info_dict["SubjectID"]
-        folder_path = rootfolder / subjectID / folder
+        subject_id = info_dict["SubjectID"]
+        folder_path = rootfolder / subject_id / folder
         folder_path.mkdir(parents=True, exist_ok=True)
         generate_dataset_info(folder_path, attributes=info_dict)

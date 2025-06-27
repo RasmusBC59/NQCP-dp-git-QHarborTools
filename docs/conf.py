@@ -16,11 +16,12 @@
 #
 import os
 import sys
-import versioningit
-import qharbortools
-
 from pathlib import Path
+
+import versioningit
 from packaging.version import parse
+
+import qharbortools
 
 sys.path.insert(0, os.path.abspath(".."))
 # Set the project directory to the root of your project

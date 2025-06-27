@@ -82,7 +82,6 @@ omit = [
     "qharbortools/__init__.py",
     "*/__init__.py",
     "qharbortools/tests/*",
-    "qharbortools/instrument_drivers/test.py",
 ]
 [tool.coverage.report]
 exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:"]
@@ -174,11 +173,12 @@ filterwarnings = [
     "ignore:The distutils package is deprecated and slated for removal in Python 3.12:DeprecationWarning",
     "ignore:distutils Version classes are deprecated:DeprecationWarning",
     "ignore:SelectableGroups dict interface is deprecated:DeprecationWarning",
+    "ignore:datetime.datetime.utcnow\\(\\) is deprecated:DeprecationWarning",
 ]
 
 [tool.ruff]
 # Enable Pyflakes `E` and `F` codes by default.
-lint.select = ["E", "F", "PT025"]
+lint.select = ["E", "F", "PT025", "I", "N", "W", "PL", "UP", "RET"]
 # darker will fix this as code is
 # reformatted when it is changed.
 lint.ignore = ["E501"]
