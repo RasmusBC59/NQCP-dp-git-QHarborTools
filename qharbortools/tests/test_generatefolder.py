@@ -1,5 +1,3 @@
-import sys
-
 import pandas as pd
 import pytest
 import ruamel.yaml
@@ -36,10 +34,6 @@ def mock_folder_structure(tmp_path):
     return root_folder, info_file
 
 
-@pytest.mark.skipif(
-    sys.platform == "linux",
-    reason="Test is not compatible with Linux one of the used libraries is not compatible with Linux",
-)
 def test_folderfromxl(mock_folder_structure):
     root_folder, info_file = mock_folder_structure
     from qharbortools.generatefolder import folderfromxl  # noqa: PLC0415
